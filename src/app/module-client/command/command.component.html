@@ -11,7 +11,7 @@
         </div>
     </div>
 </ng-template>
-<div class="card mt-5" *ngIf="commandFoods ; else errors">
+<div class="card mt-5" *ngIf="commandLines ; else errors">
     <div class="card-header">
         <h5>COMPLETE YOUR COMMAND</h5>
     </div>
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div>
-                    <div class="card" *ngIf="commandFoods">
+                    <div class="card" *ngIf="commandLines">
                         <div class="card-header">
                             <h6>Your Command List</h6>
                         </div>
@@ -33,10 +33,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let f of commandFoods">
-                                        <td> {{ f.name }} </td>
-                                        <td>1</td>
-                                        <td> {{ f.price }} FCFA</td>
+                                    <tr *ngFor="let f of commandLines">
+                                        <td> {{ f.food.name }} </td>
+                                        <td> {{ f.quantity}} </td>
+                                        <td> {{ f.totalPrice }} FCFA</td>
                                     </tr>
                                     <br>
                                     <tr *ngIf="commandFoods">

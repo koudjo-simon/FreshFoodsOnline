@@ -20,7 +20,7 @@ export class CommandComponent implements OnInit{
   public errorMessage!: string;
   public totalPrice: number = 0;
   
-  private commandLines: CommandLine[] = [];
+  public commandLines: CommandLine[] = [];
 
   public commandFormGroup!: FormGroup;
 
@@ -32,7 +32,7 @@ export class CommandComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.cartService.getCartFoods().subscribe({
+    /* this.cartService.getCartFoods().subscribe({
       next: data => {
         this.commandFoods = data;
         this.commandFoods.forEach(f =>{
@@ -44,7 +44,16 @@ export class CommandComponent implements OnInit{
         this.errorMessage = err;
         console.log("Une erreur",err);
       }
-    });
+    }); */
+
+    this.cmdService.getCommandLines().subscribe({
+      next: data => {
+        this.commandLines = data;
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
 
     this.commandFormGroup = this.fb.group({
       firstname: this.fb.control('', Validators.required),
@@ -76,14 +85,14 @@ export class CommandComponent implements OnInit{
       address: address
     }
 
-    this.commandFoods.forEach(element => {
+    /* this.commandFoods.forEach(element => {
       let commandLine: CommandLine = {
         food: element,
         quantity: 1,
         totalPrice: element.price
       }
       this.commandLines.push(commandLine);
-    });
+    }); */
 
     let command: Command = {
       client: client,
@@ -100,7 +109,7 @@ export class CommandComponent implements OnInit{
   }
 
   public setCommandPassed(){
-
+    
   }
 
 }

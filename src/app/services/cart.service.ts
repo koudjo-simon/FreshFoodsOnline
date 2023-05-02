@@ -38,10 +38,6 @@ export class CartService {
     return of(true);
   }
 
-  public compactSelectedFoodList(foods: Foods[]){
-
-  }
-
   public cardContainAddFoods(){
     return this.cardFoodsList.length > 0;
   }

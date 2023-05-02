@@ -21,6 +21,14 @@ export class CommandService {
     return of(cmd);
   }
 
+  public setCommandLines(cmdLines : CommandLine[]){
+    if (cmdLines.length > 0) {
+      cmdLines.forEach(cmdLine => {
+        this.commandLineList.push(cmdLine);
+      })
+    }
+  }
+
   public getCommands(): Observable<Command[]>{
     if (this.commandList.length == 0) return throwError(() => new Error("Command List is empty"));
     return of(this.commandList);

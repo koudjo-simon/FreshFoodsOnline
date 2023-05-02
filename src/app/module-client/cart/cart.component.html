@@ -4,11 +4,11 @@
             <li style="list-style: none;"><h4>SELECTED FOODS</h4></li>
         </div>
         <div class="card-body">
-            <table class="table" *ngIf="selectedFoods">
+            <table class="table" *ngIf="commandLines">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Price</th>
+                        <th>Unit Price</th>
                         <th>Cook Time</th>
                         <th>Origins</th>
                         <th>Quantity</th>
@@ -16,13 +16,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let food of selectedFoods">
-                        <td> {{food.name}} </td>
-                        <td> {{food.price}} </td>
-                        <td> {{food.cookTime}} </td>
-                        <td> {{food.origins}} </td>
-                        <td> 1 </td>
-                        <td> <button class="btn btn-outline-danger" (click)="handleDeleteFood(food)">Delete</button> </td>
+                    <tr *ngFor="let commandLinesFood of commandLines">
+                        <td> {{ commandLinesFood.food.name }} </td>
+                        <td> {{commandLinesFood.food.price}} </td>
+                        <td> {{ commandLinesFood.food.cookTime }} </td>
+                        <td> {{ commandLinesFood.food.origins }} </td>
+                        <td> {{ commandLinesFood.quantity }} </td>
+                        <td> <button class="btn btn-outline-danger" (click)="handleDeleteFood(commandLinesFood)">Delete</button> </td>
                         <td> <button class="btn btn-outline-warning">Edit</button> </td>
                     </tr>
                 </tbody>

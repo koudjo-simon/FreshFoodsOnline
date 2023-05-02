@@ -3,7 +3,16 @@
         <a class="logo" [routerLink]="['/client/food']">FRESHFOODSONLINE</a>
         <nav>
             <ul>
-                <li> <a [routerLink]="['/client/cart']">Cart</a> </li>
+                <li> <a [routerLink]="['/client/cart']">
+                        <button type="button" class="btn position-relative">
+                            Cart
+                            <span class="position-absolute top-0 start-100 translate-middle badge roude-pill bg-white">
+                                99+
+                            </span>
+                        </button>
+
+                    </a> 
+                </li>
             </ul>
         </nav>
     </div>

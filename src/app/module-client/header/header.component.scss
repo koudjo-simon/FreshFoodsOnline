@@ -7,16 +7,31 @@ header{
 .container-fluid{
     display: flex;
     justify-content: space-between;
-}
-
-a{
-    color: #af1313;
-}
-
-a:hover{
     background-color: #c72929;
     color: white;
 }
+
+button{
+    color: white;
+}
+
+button:hover{
+    background-color: aliceblue;
+    color: #c72929;
+}
+
+span{
+    color: black;
+}
+
+a{
+    color: white;
+}
+
+/* a:hover{
+    background-color: #c72929;
+    color: white;
+} */
 
 a.logo{
     font-weight: bold;
