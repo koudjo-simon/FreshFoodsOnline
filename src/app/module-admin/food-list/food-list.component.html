@@ -1,0 +1,53 @@
+<ng-template #errors>
+    <div class="text-danger">
+        {{errorMessage}}
+    </div>
+</ng-template>
+<div class="card mt-5" *ngIf="searchFoods ; else errors">
+    <div class="card-header">
+        <h3 style="text-align: center;">Foods List Adminstration</h3>
+    </div>
+    <div class="card-body">
+        <div class="input-group">
+            <input type="text" placeholder="Enter the food name for search" [(ngModel)]="searchKeyword" class="form-control" id="search">
+        </div>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Favorite</th>
+                    <th>Star</th>
+                    <th>Tags</th>
+                    <th>ImageUrl</th>
+                    <th>CookTime</th>
+                    <th>Origins</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let food of searchFoods">
+                    <td>{{food.id}}</td>
+                    <td>{{food.name}}</td>
+                    <td>{{food.price}}</td>
+                    <td>{{food.favorite}}</td>
+                    <td>{{food.star}}</td>
+                    <td>{{food.tags}}</td>
+                    <td>{{food.imageUrl}}</td>
+                    <td>{{food.cookTime}}</td>
+                    <td>{{food.origins}}</td>
+                    <td>
+                        <button class="btn btn-outline-warning" (click)="handleEditFood(food)">
+                            <i class="bi bi-file"></i>
+                        </button>
+                        <button class="btn btn-outline-danger" (click)="handleDeleteFood(food)">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
